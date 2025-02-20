@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Lato:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 20% 10%;
+  --foreground: 220 20% 98%;
+  --card: 220 20% 15%;
+  --card-foreground: 220 20% 98%;
+  --popover: 220 20% 15%;
+  --popover-foreground: 220 20% 98%;
+  --primary: 220 80% 60%;
+  --primary-foreground: 220 20% 98%;
+  --secondary: 220 20% 20%;
+  --secondary-foreground: 220 20% 98%;
+  --muted: 220 20% 30%;
+  --muted-foreground: 220 20% 80%;
+  --accent: 220 80% 50%;
+  --accent-foreground: 220 20% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 220 20% 98%;
+  --border: 220 20% 30%;
+  --input: 220 20% 20%;
+  --ring: 220 80% 60%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Lato", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+  }
+}
+
+/* Remove the mapboxgl-specific styles and keep only what's needed */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* Rest of the styles remain unchanged */
+
+/* Glassmorphism */
+.glassmorphism {
+  background: rgba(30, 30, 40, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Micro-interactions */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(var(--primary), 0.5);
+}
+
+/* Animated data point pulse */
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--primary), 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(var(--primary), 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--primary), 0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Add these animations to your existing globals.css */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+/* Add gradient border utilities */
+.border-gradient-from-blue-500.to-purple-500 {
+  border-image: linear-gradient(to right, #3b82f6, #a855f7) 1;
+}
+
+.border-gradient-from-purple-500.to-pink-500 {
+  border-image: linear-gradient(to right, #a855f7, #ec4899) 1;
+}
+
+.border-gradient-from-pink-500.to-orange-500 {
+  border-image: linear-gradient(to right, #ec4899, #f97316) 1;
+}
+
